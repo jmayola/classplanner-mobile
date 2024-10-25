@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity } from 'react-native';
-// import Header from '../components/Header';
-// import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const HomeScreen = ({ navigation }) => {
   const users = [
@@ -18,7 +18,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* <Header/> */}
+      <Header/>
       <Text style={styles.welcomeText}>¡Bienvenido {users[0].username}!</Text>
       <Text style={styles.subtitle}>Las clases que dictás:</Text>
       <FlatList
@@ -32,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
         keyExtractor={item => item.id}
         style={styles.subjectcontainer}
       />
-      {/* <Footer/> */}
+      <Footer/>
     </View>
   );
 };
