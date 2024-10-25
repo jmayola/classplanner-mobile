@@ -1,31 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, Image } from 'react-native';
 
 const Header = () => {
   return (
-    <View style={styles.container}>
+    <View className="bg-white border-b border-b-gray-300 mb-12 flex-end pt-2">
       <Image
         source={require('../../assets/ClassPlanner.png')} 
-        style={styles.logo}
+        className="w-24 h-24" 
         resizeMode="contain"
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e9e9e9',
-    marginBottom: 50,
-    alignItems: 'flex-end',
-    paddingTop: 10,
-  },
-  logo: {
-    width: 100,
-    height: 90,
-  },
-});
 
 export default Header;

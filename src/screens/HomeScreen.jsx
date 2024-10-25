@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const HomeScreen = ({ navigation }) => {
   const users = [
-    { username: 'Aldo Avalos'},
-    { username: 'Diego Callamullo'},
-    { username: 'Pablo Gareis'},
+    { username: 'Aldo Avalos' },
+    { username: 'Diego Callamullo' },
+    { username: 'Pablo Gareis' },
   ];
 
   const classes = [
@@ -17,66 +17,29 @@ const HomeScreen = ({ navigation }) => {
   ];
 
   return (
-    <View style={styles.container}>
-      <Header/>
-      <Text style={styles.welcomeText}>¡Bienvenido {users[0].username}!</Text>
-      <Text style={styles.subtitle}>Las clases que dictás:</Text>
+    <View className="flex-1 p-5 bg-white">
+      <Header />
+      <Text className="text-4xl mb-8 text-center font-bold">
+        ¡Bienvenido {users[0].username}!
+      </Text>
+      <Text className="text-2xl mb-3 text-left">Las clases que dictás:</Text>
       <FlatList
         data={classes}
         renderItem={({ item }) => (
-          <TouchableOpacity style={styles.classCard} onPress={() => navigation.navigate('ClassDetailsScreen', { classId: item.id })}>
-            <Text style={styles.className}>{item.materia}</Text>
-            <Text style={styles.subject}>{item.curso}</Text>
+          <TouchableOpacity
+            className="p-4 bg-gray-200 rounded-[20px] mb-5"
+            onPress={() => navigation.navigate('ClassDetailsScreen', { classId: item.id })}
+          >
+            <Text className="text-lg font-bold text-gray-800">{item.materia}</Text>
+            <Text className="text-base text-gray-600 mt-1">{item.curso}</Text>
           </TouchableOpacity>
         )}
         keyExtractor={item => item.id}
-        style={styles.subjectcontainer}
+        className="mt-5"
       />
-      <Footer/>
+      <Footer />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#fff',
-  },
-  welcomeText: {
-    fontSize: 26,
-    marginBottom: 30,
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
-  subtitle: {
-    fontSize: 20,
-    marginBottom: 10,
-    textAlign: 'left',
-  },
-  classCard: {
-    padding: 15,
-    backgroundColor: '#e9e9e9',
-    borderRadius: 15,
-    marginBottom: 15,
-  },
-  className: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  subject: {
-    fontSize: 15,
-    color: '#666',
-    marginTop: 5,
-  },
-  subjectcontainer:{
-    marginTop: 20,
-  },
-  buttonContainer: {
-    marginTop: 20,
-    alignItems: 'center',
-  },
-});
 
 export default HomeScreen;
