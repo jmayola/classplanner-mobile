@@ -28,7 +28,7 @@ const HomeScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             className="p-4 bg-gray-200 rounded-[20px] mb-5"
-            onPress={() => navigation.navigate('ClassDetailsScreen')}
+            onPress={() => navigation.navigate('ClassDetailsScreen', { classId: item.id })}
           >
             <Text className="text-lg font-bold text-gray-800">{item.materia}</Text>
             <Text className="text-base text-gray-600 mt-1">{item.curso}</Text>
